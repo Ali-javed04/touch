@@ -1,0 +1,93 @@
+
+
+<header>
+  <div  class="top-header">
+    <div  class="container-fluid">
+      <div  class="row text-white">
+        <div class="col-6">
+          <div class="row">
+            <div class="col-4">
+              <i  class="fas fa-phone-alt"></i> Contact Number : 090 98763456
+            </div>
+            <div class="col-4">
+              <i  class="fas fa-map-marker-alt"></i> Location : 22, South Wales, New York
+            </div>
+          </div>
+
+        </div>
+        <div class="col-6 ">
+          <div class="row">
+            <div class="col-6 main2">
+             {{currentDate}}
+            </div>
+            <div class="col-6 main2">
+              <div  class="form-group">
+                <select  id="exampleFormControlSelect1" class="form-control">
+                  <option >English</option>
+                  <option >Arabic</option>
+                  <option >Turkish</option>
+                </select></div>
+            </div>
+          </div>
+
+        </div>
+        </div></div></div>
+  <!--- Navbar --->
+   <div class="container-fluid main-div">
+	<nav class="navbar navbar-expand-lg">
+
+
+
+		<div class="container-fluid">
+			<a class="navbar-brand "  [routerLink]="['/']" ><img class="logo-img" src="/assets/intouch.png" alt=""></a>
+			<button class="navbar-btn d-sm-block d-lg-none d-md-none" type="button" data-toggle="collapse" data-target="#nvbCollapse" aria-controls="nvbCollapse">
+				<i class="fa fa-bars" aria-hidden="true"></i>
+			</button>
+			<div class="collapse navbar-collapse d-lg-block d-md-block" id="nvbCollapse" style="    justify-content: flex-end;
+    ">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item  pl-2 mr-3 mmargin-left" [ngClass]="{'active': currentState('home')}">
+            <a class="nav-link" [routerLink]="['/']" routerLinkActive="router-link-active" >Home</a>
+          </li>
+
+
+
+					<li class="nav-item  pl-2 mr-3 mmargin-left"  [ngClass]="{'active': currentState('contact')}">
+            <a class="nav-link" [routerLink]="['/contact']" routerLinkActive="router-link-active" >Contact</a>
+          </li>
+          <li class="nav-item  pl-2 mr-3 mmargin-left" [ngClass]="{'active': currentState('about')}">
+            <a class="nav-link" [routerLink]="['/about']" routerLinkActive="router-link-active" >About Us</a>
+          </li>
+
+					<li *ngIf="!hasValidAuthenticationToken" class="nav-item  pl-4 mr-3">
+            <a class="nav-link login-btn mmargin-left" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a>
+					</li>
+          <li *ngIf="!hasValidAuthenticationToken" class="nav-item  pl-4 mr-3">
+            <a class="nav-link login-btn mmargin-left" [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</a>
+					</li>
+
+          <div *ngIf="hasValidAuthenticationToken" class="dropdown mmargin-left">
+            <button class="dropbtn" [ngClass]="{'active': currentState('profile')}">{{ identity.firstname}}{{identity.lastname }}
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="up-icon">
+              <i class="fa fa-caret-up iconi"></i>
+            </div>
+            <div class="dropdown-content">
+
+              <a id="my-account" class="small-menu-item" [routerLink]="['/profile',identity.identityID]"  title="My Account">My Account</a>
+              <a (click)="onLogOutClick()" class="small-menu-item" title="Logout" id="btn-logout">Logout</a>
+            </div>
+          </div>
+				</ul>
+			</div>
+    </div>
+
+  </nav>
+</div>
+
+ </header>
+
+
+
+
